@@ -1,18 +1,95 @@
 body {
+	padding: 20px;
 	max-width: 1200px;
 	margin: auto;
 	font-family: Verdana, sans-serif;
+	color: rgb(55, 55, 55);
 }
 
-a:link, a:visited, a:active {
+a:link, a:visited, a:active, a:hover {
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: none;
+/* header */ 
+header {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	text-align: center;
+	flex-direction: column;
 }
+header > p {
+	color: #618e39;
+}
+
+/* article */
+
+article{
+	max-width: 800px;
+	margin: auto;
+	margin-bottom: 30px;
+}
+
+.list-description {
+	text-align: center;
+	margin-top: 32px;
+	margin-bottom: 32px;
+	display: flex;
+}
+
+.list-description > div {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 10px;
+}
+
+/* card */
+
+.cards {
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	flex-direction: column;
+}
+
+.card {
+	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+	
+	display: flex;
+	align-items: center;
+	background-color: #e4ffcc;
+	color: #618e39;
+	padding: 20px;
+	border-radius: 20px;
+	gap: 20px;
+}
+
+.card a {
+	text-align: center;
+	color: rgb(138, 136, 11);
+}
+
+.card-link {
+	display: block;
+	width: 100%;
+	background-color: #d4dfac;
+	border-radius: 50px;
+	padding: 8px 0px;
+	margin: 8px 0 8px 0;
+}
+
+
+/* table */
 
 table {
+	width: max-content;
+	max-width: 100%;
+  	overflow: auto;
 	border-collapse: collapse;
 }
 

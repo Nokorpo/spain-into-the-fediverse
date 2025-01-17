@@ -177,6 +177,11 @@ td:nth-child(5) > ul > li > a {
 	align-items: center;
 }
 
+/* footer */
+
+.references-explaination * {
+	color: gray;
+}
 
 @media (width <= 700px) {
 	.card {

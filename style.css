@@ -86,6 +86,11 @@ article{
 
 /* table */
 
+.table-container {
+	width: 100%;
+	overflow-x: scroll;
+}
+
 table {
 	width: max-content;
 	max-width: 100%;
@@ -170,4 +175,32 @@ td:nth-child(5) > ul {
 td:nth-child(5) > ul > li > a {
 	display: flex;
 	align-items: center;
+}
+
+
+@media (width <= 700px) {
+	.card {
+		flex-direction: column;
+	}
+}
+
+@media (width <= 1100px) {
+	td{
+		text-wrap: wrap;
+		padding: 4px 6px 4px 6px;
+	}
+	td:nth-child(2){
+		min-width: 120px;
+		max-width: 120px;
+		word-break: break-word;
+	}
+	td:nth-child(4), td:nth-child(5){
+		min-width: 200px;
+		max-width: 200px;
+		word-break: break-word;
+	}
+	.account {
+		min-width: 200px;
+		word-break: break-word;
+	}
 }

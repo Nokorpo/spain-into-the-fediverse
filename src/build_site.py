@@ -24,7 +24,7 @@ def generate_table():
 
 def generate_table_row(data):
 	row = "<tr>"
-	account, name, description, web_link, state = list(data.values())
+	name, description, web_link, state = list(data.values())
 
 	row += '<td>%s</td>' % (STATE_TO_EMOJI_MAP[state])
 	row += '<td><a href="%s">%s</a></td>' % (web_link, name)
@@ -45,10 +45,6 @@ def generate_reference_list_for(current_name):
 	ref_list += "</ul>"
 	return ref_list
 
-def get_user_profile_link_from_username(username):
-	_,name,domain = username.split("@")
-	link = "https://%s/@%s" % (domain, name)
-	return link
 
 def generate_account_list_for(current_name):
 	ref_list = "<ul>"
@@ -57,7 +53,8 @@ def generate_account_list_for(current_name):
 		for row in rows:
 			name,username,server = list(row.values())
 			if name == current_name:
-				link = get_user_profile_link_from_username(username)
+				link_resolver = UserProfileLinkResolverFactory().create(server)
+				link = link_resolver.get_user_profile_link_from_username(username)
 				ref_list += '<li class="account"><a href="%s"><img src="./images/%s.svg" height="20"><p>%s</p></li>' % (link, server, username)
 	ref_list += "</ul>"
 	return ref_list
@@ -67,5 +64,25 @@ def main():
 		index = file.read()
 		index = index.replace("${TABLE}", generate_table())
 		print(index)
+
+
+class UserProfileLinkResolverFactory(object):
+	def create(self, server):
+		if server in ("Akkoma", "Pleroma"):
+			return PleromaUserProfileLinkResolver()
+		else:
+			return UserProfileLinkResolver()
+
+class UserProfileLinkResolver(object):
+	def get_user_profile_link_from_username(self, username):
+		_,name,domain = username.split("@")
+		link = "https://%s/@%s" % (domain, name)
+		return link
+
+class PleromaUserProfileLinkResolver(object):
+	def get_user_profile_link_from_username(self, username):
+		_,name,domain = username.split("@")
+		link = "https://%s/%s" % (domain, name)
+		return link
 
 main()

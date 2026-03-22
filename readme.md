@@ -1,3 +1,9 @@
+# ⚠️ Migración a Codeberg
+
+Este repositorio actualmente está archivado y desactualizado, la versión mas reciente de este proyecto se encuentra en Codeberg: [codeberg.org/Nokorpo/spain-into-the-fediverse](https://codeberg.org/Nokorpo/spain-into-the-fediverse)
+
+---
+
 Este es un listado de colectivos españoles que abandonan Twitter/X y entran al Fediverso.
 
 consulta el listado en: [nokorpo.github.io/spain-into-the-fediverse/](https://nokorpo.github.io/spain-into-the-fediverse/)
